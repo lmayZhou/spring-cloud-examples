@@ -21,7 +21,6 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <alibaba.nacos.version>0.2.1.RELEASE</alibaba.nacos.version>
     </properties>
 
     <!-- Spring Cloud 入门案例 -->

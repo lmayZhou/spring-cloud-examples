@@ -20,27 +20,16 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <alibaba.nacos.version>0.2.1.RELEASE</alibaba.nacos.version>
+        <alibaba.nacos.discovery.version>0.2.1.RELEASE</alibaba.nacos.discovery.version>
+        <spring-cloud-openfeign.version>2.0.0.RELEASE</spring-cloud-openfeign.version>
+        <spring-cloud-netflix.version>2.0.0.RELEASE</spring-cloud-netflix.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <version>${alibaba.nacos.version}</version>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <!-- Nacos 服务配置 -->
+        <module>spring-cloud-nacos-config</module>
+        <!-- Nacos 服务发现 -->
+        <module>spring-cloud-nacos-discovery</module>
+    </modules>
 </project>
