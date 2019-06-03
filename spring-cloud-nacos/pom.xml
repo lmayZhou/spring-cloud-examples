@@ -21,9 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <alibaba.nacos.version>0.2.1.RELEASE</alibaba.nacos.version>
-        <alibaba.nacos.discovery.version>0.2.1.RELEASE</alibaba.nacos.discovery.version>
-        <spring-cloud-openfeign.version>2.0.0.RELEASE</spring-cloud-openfeign.version>
-        <spring-cloud-netflix.version>2.0.0.RELEASE</spring-cloud-netflix.version>
+        <alibaba-dependencies.version>0.2.1.RELEASE</alibaba-dependencies.version>
     </properties>
 
     <modules>
