@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/provider")
 public class NacosProviderController {
     /**
-     * http://localhost:8070/provider/echo/2019
+     * http://localhost:8082/provider/echo/2019
      *
      * @param str 请求参数
      * @return String

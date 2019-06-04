@@ -24,7 +24,7 @@ public class NacosConsumerController {
     }
 
     /**
-     * http://localhost:8080/consumer/echo/2019
+     * http://localhost:8081/consumer/echo/2019
      *
      * @param str 请求参数
      * @return String

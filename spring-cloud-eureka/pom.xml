@@ -3,17 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lmaye</groupId>
-    <artifactId>spring-cloud-nacos</artifactId>
+    <artifactId>spring-cloud-eureka</artifactId>
     <version>1.0.1-SNAPSHOT</version>
-    <name>spring-cloud-nacos</name>
+    <name>spring-cloud-eureka</name>
     <packaging>pom</packaging>
-    <description>Nacos project for Spring Cloud</description>
+    <description>Eureka project for Spring Cloud</description>
 
     <!-- lookup parent from repository -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
+        <version>2.1.5.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -21,27 +21,40 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <alibaba.nacos.version>0.2.1.RELEASE</alibaba.nacos.version>
-        <alibaba-dependencies.version>0.2.1.RELEASE</alibaba-dependencies.version>
+        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
     </properties>
 
     <modules>
-        <!-- Nacos 服务配置 -->
-        <module>spring-cloud-nacos-config</module>
-        <!-- Nacos 服务发现 -->
-        <module>spring-cloud-nacos-discovery</module>
+        <!-- Spring Cloud 之 Eureka 入门案例 -->
+        <!-- Spring Cloud Eureka 服务注册中心 -->
+        <module>sc-eureka-server</module>
+        <!-- Spring Cloud 服务提供者 -->
+        <module>sc-eureka-client-provider</module>
+        <!-- Spring Cloud 服务消费者 -->
+        <module>sc-eureka-client-customer</module>
     </modules>
-
-    <!-- Spring Cloud 依赖管理 -->
-    <dependencyManagement>
-
-    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
 
         <!-- Spring Boot Test 依赖 -->
@@ -51,6 +64,20 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <!-- Spring Cloud 依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Cloud 依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

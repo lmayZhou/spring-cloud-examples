@@ -1,22 +1,24 @@
-package com.lmaye.spring.cloud.nacos.provider;
+package com.lmaye.sc.eureka.client.customer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
- * -- Nacos 服务提供者Application
+ * Spring Boot Eureka Client Customer 应用启动类
  *
  * @author lmay.Zhou
+ * @date 2017/10/23 17:12
  * @qq 379839355
  * @email lmay@lmaye.com
- * @since 2019/6/3 22:32 星期一
  */
 @EnableDiscoveryClient
+@EnableCircuitBreaker
 @SpringBootApplication
-public class SpringCloudNacosProviderApplication {
+public class ScEurekaClientCustomerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringCloudNacosProviderApplication.class, args);
+        SpringApplication.run(ScEurekaClientCustomerApplication.class, args);
     }
 }

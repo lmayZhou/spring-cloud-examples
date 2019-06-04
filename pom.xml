@@ -9,58 +9,13 @@
     <packaging>pom</packaging>
     <description>Examples project for Spring Cloud</description>
 
-    <!-- lookup parent from repository -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
-        <relativePath/>
-    </parent>
-
-    <properties>
-        <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
-
     <!-- Spring Cloud 入门案例 -->
     <modules>
+        <!-- Spring Cloud Eureka 服务注册中心 -->
+        <module>spring-cloud-eureka</module>
         <!-- Spring Cloud Nacos 服务注册中心 -->
         <module>spring-cloud-nacos</module>
+        <!-- Spring Cloud Zookeeper 服务注册中心 -->
         <module>spring-cloud-zookeeper</module>
     </modules>
-
-    <!-- Spring Cloud 依赖管理 -->
-    <dependencyManagement>
-
-    </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Spring Boot Test 依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <!-- 解决maven test命令时console出现中文乱码乱码 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <forkMode>once</forkMode>
-                    <argLine>-Dfile.encoding=UTF-8</argLine>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
