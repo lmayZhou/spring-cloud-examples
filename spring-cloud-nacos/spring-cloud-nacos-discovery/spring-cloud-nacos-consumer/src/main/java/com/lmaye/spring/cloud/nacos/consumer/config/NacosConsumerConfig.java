@@ -1,6 +1,9 @@
 package com.lmaye.spring.cloud.nacos.consumer.config;
 
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * -- Nacos 服务消费者配置
@@ -12,5 +15,9 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class NacosConsumerConfig {
-
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 }
