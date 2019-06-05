@@ -1,0 +1,15 @@
+server:
+  # 服务端口
+  port: 8092
+
+spring:
+  application:
+    # 应用名称
+    name: zookeeper-provider
+  cloud:
+    zookeeper:
+      # zookeeper 服务连接地址
+      connect-string: 192.168.0.188:2181
+      discovery:
+        # zookeeper 路径
+        root: /spring-cloud-service
