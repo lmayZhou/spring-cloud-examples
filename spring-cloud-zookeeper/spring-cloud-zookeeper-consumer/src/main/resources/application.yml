@@ -1,21 +1,21 @@
 server:
-  # ·şÎñ¶Ë¿Ú
+  # æœåŠ¡ç«¯å£
   port: 8091
 
 spring:
   application:
-    # Ó¦ÓÃÃû³Æ
+    # æœåŠ¡æ¶ˆè´¹è€…
     name: zookeeper-consumer
   cloud:
     zookeeper:
-      # zookeeper ·şÎñÁ¬½ÓµØÖ·
-      connect-string: 192.168.0.188:2181
+      # zookeeper è¿æ¥åœ°å€
+      connect-string: 192.168.0.10:2181
       discovery:
         register: false
-        # zookeeper Â·¾¶
+        # zookeeper èŠ‚ç‚¹
         root: /spring-cloud-service
       dependencies:
-        # zookeeper ·şÎñÌá¹©Õß
+        # zookeeper æœåŠ¡
         service-zookeeper:
           required: true
           path: /zookeeper-provider

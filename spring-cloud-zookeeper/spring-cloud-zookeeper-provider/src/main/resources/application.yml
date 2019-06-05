@@ -1,15 +1,15 @@
 server:
-  # ·şÎñ¶Ë¿Ú
+  # æœåŠ¡ç«¯å£
   port: 8092
 
 spring:
   application:
-    # Ó¦ÓÃÃû³Æ
+    # æœåŠ¡æä¾›è€…
     name: zookeeper-provider
   cloud:
     zookeeper:
-      # zookeeper ·şÎñÁ¬½ÓµØÖ·
-      connect-string: 192.168.0.188:2181
+      # zookeeper è¿æ¥åœ°å€
+      connect-string: 192.168.0.10:2181
       discovery:
-        # zookeeper Â·¾¶
+        # zookeeper èŠ‚ç‚¹
         root: /spring-cloud-service

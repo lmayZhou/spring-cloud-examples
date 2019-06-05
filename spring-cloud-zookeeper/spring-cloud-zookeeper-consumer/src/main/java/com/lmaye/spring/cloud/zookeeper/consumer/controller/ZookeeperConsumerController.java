@@ -1,5 +1,6 @@
 package com.lmaye.spring.cloud.zookeeper.consumer.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ public class ZookeeperConsumerController {
     /**
      * 请求模版
      */
-    private final RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     public ZookeeperConsumerController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
@@ -33,7 +34,17 @@ public class ZookeeperConsumerController {
      * @return String
      */
     @GetMapping("/consumer/{str}")
+    @HystrixCommand(fallbackMethod = "customerFallback")
     public String consumer(@PathVariable String str) {
         return restTemplate.getForObject("http://zookeeper-provider/zookeeper/provider/" + str, String.class);
+    }
+
+    /**
+     * 回调方法
+     *
+     * @return String
+     */
+    public String customerFallback(String str) {
+        return "Request Error! " + str;
     }
 }
