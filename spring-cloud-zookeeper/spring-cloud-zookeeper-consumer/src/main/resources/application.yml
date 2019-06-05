@@ -1,0 +1,22 @@
+server:
+  # 服务端口
+  port: 8091
+
+spring:
+  application:
+    # 应用名称
+    name: zookeeper-consumer
+  cloud:
+    zookeeper:
+      # zookeeper 服务连接地址
+      connect-string: 192.168.0.188:2181
+      discovery:
+        register: false
+        # zookeeper 路径
+        root: /spring-cloud-service
+      dependencies:
+        # zookeeper 服务提供者
+        service-zookeeper:
+          required: true
+          path: /zookeeper-provider
+          loadBalancerType: ROUND_ROBIN
