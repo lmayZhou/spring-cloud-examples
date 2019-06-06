@@ -23,3 +23,16 @@ spring:
 #          required: true
 #          path: /zookeeper-provider
 #          loadBalancerType: ROUND_ROBIN
+
+hystrix:
+  command:
+    consumer:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1500

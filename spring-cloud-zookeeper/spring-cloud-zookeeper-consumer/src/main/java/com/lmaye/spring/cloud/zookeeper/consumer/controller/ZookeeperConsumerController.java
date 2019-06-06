@@ -41,7 +41,7 @@ public class ZookeeperConsumerController {
      * @return String
      */
     @GetMapping("/consumer/{str}")
-    @HystrixCommand(fallbackMethod = "customerFallback")
+    @HystrixCommand(commandKey = "consumer", fallbackMethod = "customerFallback")
     public String consumer(@PathVariable String str) {
         return restTemplate.getForObject("http://zookeeper-provider/zookeeper/provider/" + str, String.class);
     }
