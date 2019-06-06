@@ -9,14 +9,17 @@ spring:
   cloud:
     zookeeper:
       # zookeeper 连接地址
-      connect-string: 192.168.0.10:2181
+      connect-string: 192.168.0.188:2181
       discovery:
+        # 是否启用
+        enabled: true
+        # 是否注册
         register: false
         # zookeeper 节点
         root: /spring-cloud-service
-      dependencies:
+#      dependencies:
         # zookeeper 服务
-        service-zookeeper:
-          required: true
-          path: /zookeeper-provider
-          loadBalancerType: ROUND_ROBIN
+#        service-zookeeper:
+#          required: true
+#          path: /zookeeper-provider
+#          loadBalancerType: ROUND_ROBIN

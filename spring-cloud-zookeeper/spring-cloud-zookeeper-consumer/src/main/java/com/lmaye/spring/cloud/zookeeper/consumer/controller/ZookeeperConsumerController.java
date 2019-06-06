@@ -1,5 +1,6 @@
 package com.lmaye.spring.cloud.zookeeper.consumer.controller;
 
+import com.lmaye.spring.cloud.zookeeper.consumer.feign.ZookeeperConsumerFeign;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,8 +24,14 @@ public class ZookeeperConsumerController {
      */
     private RestTemplate restTemplate;
 
-    public ZookeeperConsumerController(RestTemplate restTemplate) {
+    /**
+     * Zookeeper 消费者Feign
+     */
+    private ZookeeperConsumerFeign consumerFeign;
+
+    public ZookeeperConsumerController(RestTemplate restTemplate, ZookeeperConsumerFeign consumerFeign) {
         this.restTemplate = restTemplate;
+        this.consumerFeign = consumerFeign;
     }
 
     /**
@@ -40,11 +47,22 @@ public class ZookeeperConsumerController {
     }
 
     /**
+     * http://localhost:8091/zookeeper/consumerFeign/2019
+     *
+     * @param str 请求数据
+     * @return String
+     */
+    @GetMapping("/consumerFeign/{str}")
+    public String consumerFeign(@PathVariable String str) {
+        return consumerFeign.consumer(str);
+    }
+
+    /**
      * 回调方法
      *
      * @return String
      */
     public String customerFallback(String str) {
-        return "Request Error! " + str;
+        return "Hystrix - Request Error! " + str;
     }
 }

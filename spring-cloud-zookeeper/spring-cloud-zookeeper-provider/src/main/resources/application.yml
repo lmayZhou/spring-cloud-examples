@@ -9,7 +9,11 @@ spring:
   cloud:
     zookeeper:
       # zookeeper 连接地址
-      connect-string: 192.168.0.10:2181
+      connect-string: 192.168.0.188:2181
       discovery:
+        # 是否启用
+        enabled: true
+        # 是否注册
+        register: true
         # zookeeper 节点
         root: /spring-cloud-service
